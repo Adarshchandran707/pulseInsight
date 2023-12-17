@@ -6,6 +6,8 @@
     <title>PulseInsight</title>
     <style>
       body {
+        background-image: url("/static/img4.png");
+        background-size: cover;
         font-family: "Arial", sans-serif;
         margin: 0;
         padding: 0;
@@ -77,6 +79,8 @@
       }
 
       .content {
+        opacity: 0.8; /* Adjust the value between 0 (completely transparent) and 1 (fully opaque) */
+        background-color: #ffffff;
         padding: 20px;
         max-width: 800px;
         margin: 0 auto;
@@ -159,7 +163,7 @@
     </div> -->
 
     <div class="content">
-      <h2>About Arrhythmia</h2>
+      <h2>Arrhythmia</h2>
       <p>
         Arrhythmia is a condition characterized by an irregular heartbeat. It
         can manifest as a slow or fast heartbeat and may lead to various health
@@ -170,7 +174,7 @@
       <!-- Add more content about arrhythmia as needed -->
 
       <div class="navigation-section">
-        <a href="{{ url_for('index') }}">Go to Arrhythmia Classifier</a>
+        <a href="{{ url_for('index') }}">Try AI Classifier</a>
       </div>
     </div>
 
