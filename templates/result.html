@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PulseInsight</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+        color: #333;
+      }
+
+      header {
+        background-color: #009688;
+        color: white;
+        size: 30px;
+        padding: 10px;
+        text-align: center;
+      }
+
+      nav {
+        background-color: #333;
+        overflow: hidden;
+      }
+
+      nav a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      nav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      .hero-section {
+        background-image: url("path/to/your/image.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+      }
+
+      .content {
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        margin-bottom: 80px;
+      }
+
+      form {
+        margin-top: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        background-color: #009688;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #00796b;
+      }
+
+      footer {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>PulseInsight.</h1>
+    </header>
+
+    <nav>
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('about') }}">About</a>
+      <a href="{{ url_for('contact') }}">Contact</a>
+    </nav>
+    {% if predictions %}
+    <h3>Predictions:</h3>
+    <ul>
+      {% for prediction in predictions %}
+      <li>{{ prediction }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>{{ prediction }}</p>
+    {% endif %}
+    <footer>
+      <p>&copy; 2023 PulseInsight. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let currentIndex = 0;
+        const items = document.querySelectorAll(".carousel-item");
+        const totalItems = items.length;
+
+        function showSlide(index) {
+          const newIndex = (index + totalItems) % totalItems;
+          const transformValue = -100 * newIndex + "%";
+          document.querySelector(".carousel-inner").style.transform =
+            "translateX(" + transformValue + ")";
+          currentIndex = newIndex;
+        }
+
+        setInterval(function () {
+          showSlide(currentIndex + 1);
+        }, 5000); // Change slide every 5 seconds
+      });
+    </script>
+  </body>
+</html>
